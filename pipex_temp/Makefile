@@ -13,18 +13,15 @@
 PROG	= pipex
 PROG_B  = pipex_bonus
 
-SRCS 	= srcs/pipex.c srcs/utils.c
+SRCS 	= srcs/pipex.c
 OBJS 	= ${SRCS:.c=.o}
 MAIN	= srcs/pipex.c
 
-SRCS_B	= srcs/pipex_bonus.c srcs/utils.c srcs/utils_bonus.c
-OBJS_B	= ${SRCS_B:.c=.o}
-MAIN_B	= srcs/pipex_bonus.c
 
 HEADER	= -Iincludes
 
 CC 		= gcc
-CFLAGS 	= #-Wall -Wextra -Werror -g#
+CFLAGS 	= -Wall -Wextra -Werror -g
 
 .c.o:		%.o : %.c
 					@gcc ${CFLAGS} ${HEADER} -c $< -o $(<:.c=.o)
@@ -34,7 +31,7 @@ all: 		${PROG}
 ${PROG}:	${OBJS}
 					@echo "\033[33m----Compiling lib----"
 					@make re -C ./Libft
-					@$(CC) ${OBJS} -LLibft -l:libft.a -o ${PROG}
+					@$(CC) ${OBJS} -LLibft -lft -o ${PROG}
 					@echo "\033[32mPipex Compiled! ᕦ(\033[31m♥\033[32m_\033[31m♥\033[32m)ᕤ\n"
 
 
@@ -42,12 +39,12 @@ ${PROG}:	${OBJS}
 
 clean:
 					@make clean -C ./Libft
-					@rm -f ${OBJS} ${OBJS_B}
+					@rm -f ${OBJS}
 
 fclean: 	clean
 					@make fclean -C ./Libft
 					@rm -f $(NAME)
-					@rm -f ${PROG}
+					@rm -f ${PROG} 
 					@echo "\n\033[31mDeleting EVERYTHING! ⌐(ಠ۾ಠ)¬\n"
 
 re:			fclean all
