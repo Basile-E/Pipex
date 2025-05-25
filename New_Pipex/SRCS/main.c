@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: basile <basile@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 15:34:31 by basile            #+#    #+#             */
-/*   Updated: 2025/05/25 16:20:52 by basile           ###   ########.fr       */
+/*   Created: 2025/03/14 10:34:31 by basile            #+#    #+#             */
+/*   Updated: 2025/05/25 16:38:51 by basile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ int	main(int argc, char **argv, char **envp)
             return (WEXITSTATUS(status2));
         else if (WIFEXITED(status1))
             return (WEXITSTATUS(status1));
-        return 1;
+        return (1);
     }
     else
     {
-        ft_putstr_fd("\033[31mError: Bad arguments\n\e[0m", 2);
+        ft_putstr_fd("Error: Bad arguments\n", 2);
         ft_putstr_fd("Ex: ./pipex <file1> <cmd1> <cmd2> <file2>\n", 1);
-        return 1;
+        return (1);
     }
 }

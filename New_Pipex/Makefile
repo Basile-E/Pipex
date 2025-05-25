@@ -15,20 +15,32 @@ CFLAGS 	= -Wall -Wextra -Werror -g
 all: 		${PROG}
 
 ${PROG}:	${OBJS}
-					@echo "\033[33m----Compiling lib----"
+					@echo "Compiling the Libft\n"
 					@make re -C ./Libft
 					@$(CC) ${OBJS} -LLibft -lft -o ${PROG}
-					@echo "\033[32mPipex Compiled! ᕦ(\033[31m♥\033[32m_\033[31m♥\033[32m)ᕤ\n"
+					@echo '__________.__                      '
+					@echo '\______   \__|_____   ____ ___  ___'
+					@echo ' |     ___/  \____ \_/ __ \\  \/  /'
+					@echo ' |    |   |  |  |_> >  ___/ >    < '
+					@echo ' |____|   |__|   __/ \___  >__/\_ \'
+					@echo '             |__|        \/      \/'
+					@echo "                     Compiled and ready to run !\n"
 
 clean:
-					@make clean -C ./libft
+					@make clean -C ./Libft
 					@rm -f ${OBJS} ${OBJS_B}
 
 fclean: 	clean
-					@make fclean -C ./libft
+					@make fclean -C ./Libft
 					@rm -f $(NAME)
 					@rm -f ${PROG}
-					@echo "\n\033[31mDeleting EVERYTHING! ⌐(ಠ۾ಠ)¬\n"
+					@echo '__________.__                      '
+					@echo '\______   \__|_____   ____ ___  ___'
+					@echo ' |     ___/  \____ \_/ __ \\  \/  /'
+					@echo ' |    |   |  |  |_> >  ___/ >    < '
+					@echo ' |____|   |__|   __/ \___  >__/\_ \'
+					@echo '             |__|        \/      \/'
+					@echo "                     Everything is Clean, See you soon !\n"
 
 re:			fclean all
 
